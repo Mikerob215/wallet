@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  type: 
+  expmonth: MyString
+  expyear: MyString
+  balance: 9.99
+
+two:
+  number: MyString
+  type: 
+  expmonth: MyString
+  expyear: MyString
+  balance: 9.99
