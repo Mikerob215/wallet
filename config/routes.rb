@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-
+  root 'cards#show'
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
   get '/logout' => 'sessions#destroy'
   post '/login' => 'sessions#create'
   get 'login' => 'sessions#new'
+
+  get '/edit/:id' => 'users#edit'
 
   resources :users
   resources :cards

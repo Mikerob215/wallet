@@ -20,11 +20,21 @@ class UsersController < ApplicationController
   def show
   end
   def edit
+    @user = User.find(params[:id])
   end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes.(user_params)
+      redirect_to '/'
+    else
+      render 'edit'
+    end
+  end
+
   def show
   end
-  def update
-  end
+
 
 
   private

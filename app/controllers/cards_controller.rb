@@ -3,9 +3,10 @@ class CardsController < ApplicationController
   def new
     @card = Card.new
   end
+  
   def create
     @card = current_user.cards.build(card_params) if logged_in?
-    # add card to join toggleable
+    # add card to join table
     shared = Shared.new(user_id: current_user.id, card_id: Card.last.id)
     if @card.save && shared.save
       redirect_to '/'
@@ -15,12 +16,23 @@ class CardsController < ApplicationController
   end
   def show
     @cards = current_user.cards.all
-
-
-    @balance = @cards.inject do |sum, x|
-      sum + x.balance
+    sum = 0
+    current_user.cards.each do |x|
+      sum += x.balance.to_i
     end
+    @balance = sum
   end
+
+  def edit
+
+  end
+
+  def update
+  end
+
+  def delete
+
+     end
 private
 
 def card_params
