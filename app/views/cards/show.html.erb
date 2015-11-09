@@ -36,7 +36,11 @@
       <strong>Number: </strong><%= cards.number %>
       <strong>Owners:</strong>
       <% cards.users.each do |names| %>
-      <%= names.fname.capitalize %> <% names.lname.capitalize%>
+      <% if names.fname == current_user.fname %>
+      Me
+      <% else %>
+      <%= names.fname.capitalize %> <%= names.lname.capitalize%>
+      <% end %>
       <% end %>
     </li>
     <% end %>
