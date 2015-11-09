@@ -8,6 +8,7 @@ class Card < ActiveRecord::Base
   validates :number, presence: true, length: {is: 16}, numericality: {only_integer: true}
   validates :expmonth, presence: true, length: {is: 2}, numericality: {only_integer: true, greater_than: 0, less_than: 13}
   validates :expyear, presence: true, length: {is: 4}, numericality: {only_integer: true, greater_than: 2014}
+  validates :balance, presence: true, numericality: {only_integer: true, greater_than: 0}
 
   # Callbacks
   def type_of_card

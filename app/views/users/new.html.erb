@@ -1,0 +1,15 @@
+<div class="col-md-3 col-md-offset-4">
+
+<h1>Signup!</h1>
+<div class="form-group">
+<%= form_for :user, url: '/users' do |f| %>
+  First Name: <%= f.text_field :fname, class: 'form-control'%>
+  Last Name: <%= f.text_field :lname, class: 'form-control'%>
+  Email: <%= f.text_field :email, class: 'form-control' %>
+  Phone Number: <%= f.text_field :phone_number, class: 'form-control' %>
+  Password: <%= f.password_field :password, class: 'form-control' %>
+  Password Confirmation: <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <%= f.submit "Submit", class: 'form-control' %>
+<% end %>
+</div>
+</div>

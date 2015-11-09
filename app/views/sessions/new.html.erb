@@ -1,0 +1,16 @@
+<div class="col-md-3 col-md-offset-4">
+
+<div class="form-group">
+  <h1>Login</h1>
+
+  <%= form_for(:session, url: login_path) do |f| %>
+
+  <%= f.label :email, "Email:" %>
+  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.label :password, "Password:" %>
+  <%= f.password_field :password, class: 'form-control' %><br><br>
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+
+  <% end %>
+</div>
+</div>

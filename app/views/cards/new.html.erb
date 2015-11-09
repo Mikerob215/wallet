@@ -1,0 +1,15 @@
+<div class="col-md-6">
+  <%= form_for @card do |f| %>
+    <%= f.label :number, "Number:" %>
+    <%= f.text_field :number, class: "form-control" %>
+    <%= f.label :expmonth, "Expiration month:" %>
+    <%= f.text_field :expmonth, class: "form-control" %>
+    <%= f.label :expyear, "Expiration year:" %>
+    <%= f.text_field :expyear, class: "form-control" %>
+    <%= f.label :balance, "Initial balance:" %>
+    <%= f.text_field :balance, class: "form-control" %>
+
+    <%= f.submit %>
+  <% end %>
+
+</div>
