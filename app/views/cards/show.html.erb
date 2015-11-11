@@ -19,7 +19,8 @@
       <%= current_user.cards.count %>
     </li>
     <li class="list-group-item">
-      Total Balance: <%= @balance %>
+      Total Balance:
+      <%= @balance %>
     </li>
     <li class="list-group-item">
       <%= link_to 'Edit Account', edit_user_path(current_user.id) %>
@@ -33,15 +34,23 @@
   <ul class="list-group">
     <% @cards.each do |cards| %>
     <li class="list-group-item">
-      <strong>Number: </strong><%= cards.number %>
+      <strong>Number:
+      </strong><%= cards.number %>
+    </li>
+    <li class="list-group-item">
       <strong>Owners:</strong>
       <% cards.users.each do |names| %>
       <% if names.fname == current_user.fname %>
       Me
       <% else %>
-      <%= names.fname.capitalize %> <%= names.lname.capitalize%>
+      <%= names.fname.capitalize %>
+      <%= names.lname.capitalize%>
       <% end %>
+
       <% end %>
+      <strong>Balance:</strong>
+      <%= cards.balance %>
+      <%= link_to 'Share', share_path(cards.id) %>
     </li>
     <% end %>
   </ul>

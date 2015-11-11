@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get '/edit/:id' => 'users#edit'
 
+  get 'share/:id' => 'shared#new', as: :share
+  get 'shareds' => 'shared#create'
+  get 'delete/:id' => 'shared#delete'
+
   resources :users
   resources :cards
   # The priority is based upon order of creation: first created -> highest priority.

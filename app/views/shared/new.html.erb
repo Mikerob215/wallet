@@ -1,0 +1,23 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="text-center">
+    <h1>Share card</h1>
+  </div>
+  <ul class="list-group">
+    <%= form_tag '/shareds', method: 'get' do %>
+    <li class="list-group-item">
+      Card:
+      <%= @card.number %>
+    </li>
+    <li class="list-group-item">
+      <%= label_tag "Other user's email" %>
+    </li>
+    <li class="list-group-item">
+      <%= text_field_tag :email, nil, class: 'form-control'%>
+    </li>
+    <li class="list-group-item">
+       <%=hidden_field_tag :id, @card.id %>
+      <%= submit_tag "Submit", class: "btn btn-link", autofocus: true %>
+    </li>
+    <% end %>
+  </ul>
+</div>
