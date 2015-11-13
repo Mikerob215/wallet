@@ -8,15 +8,23 @@ class SharedController < ApplicationController
   def create
     @card = Card.find(params[:id])
     @user = User.find_by_email(params[:email])
-    @shared = Shared.new(card_id:@card.id, user_id:@user.id)
-    if @shared.save
-      redirect_to '/'
+    unless @user.nil?
+      @shared = Shared.new(card_id:@card.id, user_id:@user.id)
+      if @shared.save
+        redirect_to '/'
+      elsif
+        render 'share'
+      end
     else
-      render 'share'
+      redirect_to '/'
     end
   end
 
   def delete
+    @shared = Shared.find(params[:id])
+      @shared.delete
+      @shared.save
+      redirect_to '/'
   end
 
   private

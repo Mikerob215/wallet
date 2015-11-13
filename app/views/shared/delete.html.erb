@@ -2,9 +2,11 @@
   <div class="text-center">
     <h1>Delete account</h1>
   </div>
-<ul class="list-group">
-  <%= form_tag 'delete' method: delete %>
-  <li class="list-group-item"></li>
-</ul>
 
+  <%= form_tag 'delete' method: delete %>
+  <%= password_field_tag :password %>
+  <%= hidden_field_tag :id, @card.id %>
+  <%= submit %>
+
+  <%= end %>
 </div>
