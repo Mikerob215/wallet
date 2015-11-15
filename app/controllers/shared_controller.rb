@@ -16,7 +16,7 @@ class SharedController < ApplicationController
         render 'share'
       end
     else
-      redirect_to '/'
+      render 'share'
     end
   end
 

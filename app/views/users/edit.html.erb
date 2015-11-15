@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-6 col-md-offset-1">
   <%= form_for(@user) do |f| %>
 
   <ul class="list-group">
@@ -43,4 +43,17 @@
     </li>
   </ul>
   <% end %>
+</div>
+<div class="col-md-3">
+  <%= form_for @user, method: "delete" do |f| %>
+
+  <ul class="list-group">
+    <li class="list-group-item"><strong>To delete your account enter your password below</strong></li>
+    <li class="list-group-item"> <%= f.label :password %></li>
+    <li class="list-group-item">  <%= f.text_field :password, class: "form-control" %>
+    </li>
+    <li class="list-group-item"> <%= f.submit "Delete user"%></li>
+    <% end %>
+  </ul>
+
 </div>

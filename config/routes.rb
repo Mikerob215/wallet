@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'share/:id' => 'shared#new', as: :share
   get 'shareds' => 'shared#create'
-  get 'delete/:id' => 'shared#delete'
+  get 'delete/:id' => 'shared#delete', as: :delete
 
   resources :users
   resources :cards

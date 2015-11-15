@@ -3,17 +3,19 @@ class CardsController < ApplicationController
   def new
     @card = Card.new
   end
-  
+
   def create
     @card = current_user.cards.build(card_params) if logged_in?
     # add card to join table
-    shared = Shared.new(user_id: current_user.id, card_id: Card.last.id)
-    if @card.save && shared.save
+    if @card.save
+      shared = Shared.new(user_id: current_user.id, card_id: Card.last.id)
+      shared.save
       redirect_to '/'
     else
       render new
     end
   end
+
   def show
     @cards = current_user.cards.all
     sum = 0

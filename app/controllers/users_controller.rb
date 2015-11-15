@@ -35,7 +35,17 @@ class UsersController < ApplicationController
   def show
   end
 
+  def destroy
+    user = User.find(current_user)
+    if user.authenticate(params[:user][:password])
+      User.find(current_user).destroy
+      session[:user_id] = nil
+      redirect_to '/login'
+    else
+      render 'edit'
+    end
 
+  end
 
   private
     def user_params

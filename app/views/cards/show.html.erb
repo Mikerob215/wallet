@@ -25,6 +25,9 @@
     <li class="list-group-item">
       <%= link_to 'Edit Account', edit_user_path(current_user.id) %>
     </li>
+    <li class="list-group-item">
+      <%= link_to 'Add card', new_card_path %>
+    </li>
 
   </ul>
 
@@ -50,7 +53,9 @@
       <% end %>
       <strong>Balance:</strong>
       <%= cards.balance %>
+      <% @delete_share = Shared.find_by(user_id: current_user.id, card_id: cards.id)  %>
       <%= link_to 'Share', share_path(cards.id) %>
+      <%= link_to 'Delete', delete_path(@delete_share) %>
     </li>
     <% end %>
   </ul>
