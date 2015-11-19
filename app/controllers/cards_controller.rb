@@ -12,7 +12,7 @@ class CardsController < ApplicationController
       shared.save
       redirect_to '/'
     else
-      render new
+      render 'new'
     end
   end
 
